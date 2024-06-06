@@ -1,0 +1,5 @@
+FROM alpine
+COPY webapp/target/scala-3.4.0/webapp.jar /webapp.jar
+RUN apk update && apk upgrade && apk add openjdk21-jre && \
+    mkdir -p /root/database
+CMD java -jar /webapp.jar

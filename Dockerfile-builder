@@ -1,0 +1,5 @@
+FROM alpine
+COPY builder/target/scala-3.4.0/builder.jar /builder.jar
+RUN apk update && apk upgrade && apk add openjdk21-jre && \
+    mkdir -p /root/database /root/repo /root/work
+CMD java -jar /builder.jar
